@@ -24,10 +24,10 @@ function division(number, dividedBy) {
    function pow(x, n) {
        let sum = 1
        // Write you logic here.
-       for (let i = 0; i < n; i++) {
-          sum *= x       
-       }
-       return sum;
+       if (n == 0) return 1
+       else if (n < 0) return 1 / pow(x, -n)
+       else if (n % 2 == 0) return pow(x * x, n /2)
+       else return x * pow(x, n - 1)
    }
    
    /* The Fibonacci Series is a numeric series starting with the integers 0 and 1. In this series,
@@ -77,28 +77,28 @@ function division(number, dividedBy) {
        })
    });
    
-//    describe("Test pow", () => {
-//        test("It should work as Math.pow(x,n)", () => {
-//            expect(pow(10, 2)).toStrictEqual(100);
-//            expect(pow(10, 0)).toStrictEqual(1);
-//            expect(pow(0, 0)).toStrictEqual(1);
-//        })
-//    });
+   describe("Test pow", () => {
+       test("It should work as Math.pow(x,n)", () => {
+           expect(pow(10, 2)).toStrictEqual(100);
+           expect(pow(10, 0)).toStrictEqual(1);
+           expect(pow(0, 0)).toStrictEqual(1);
+       })
+   });
    
-//    describe("Test fibonacci", () => {
-//        test("It should implement fibonacci series logic", () => {
-//            expect(fibonacci(0)).toStrictEqual(0);
-//            expect(fibonacci(1)).toStrictEqual(1);
-//            expect(fibonacci(2)).toStrictEqual(1);
-//            expect(fibonacci(3)).toStrictEqual(2);
-//            expect(fibonacci(4)).toStrictEqual(3);
-//        })
-//    });
+   describe("Test fibonacci", () => {
+       test("It should implement fibonacci series logic", () => {
+           expect(fibonacci(0)).toStrictEqual(0);
+           expect(fibonacci(1)).toStrictEqual(1);
+           expect(fibonacci(2)).toStrictEqual(1);
+           expect(fibonacci(3)).toStrictEqual(2);
+           expect(fibonacci(4)).toStrictEqual(3);
+       })
+   });
    
-//    describe("Test permutations", () => {
-//        test("It should return a list of possible combinations", () => {
-//            expect(permutations(3, 3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
-//            expect(permutations(3, 0)).toStrictEqual([]);
-//        })
-//    });
+   describe("Test permutations", () => {
+       test("It should return a list of possible combinations", () => {
+           expect(permutations(3, 3)).toStrictEqual(["123", "132", "213", "231", "312", "321"]);
+           expect(permutations(3, 0)).toStrictEqual([]);
+       })
+   });
    
